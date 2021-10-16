@@ -1,0 +1,19 @@
+{
+  "name": "change_tab_color",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev":"webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.6.0"
+  },
+  "devDependencies": {
+    "webpack": "^5.42.1",
+    "webpack-cli": "^4.7.2"
+  }
+}
