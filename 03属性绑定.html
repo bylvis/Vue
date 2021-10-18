@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue-2.6.12.js"></script>
+</head>
+<body>
+    <!-- <div id="app">{{ username }}</div> -->
+    <div id='app'>
+        <hr>
+        <!-- v-bind:动态绑定 可以简写为:-->
+        <input type="text" v-bind:placeholder='tips'>
+        <img :src="photoSrc" alt="" style="width: 120px;">
+        <hr>
+        <p>1+1的结果是{{1+1}}</p>
+        <p>{{ tips }} 的反转结果是: {{ tips.split('').reverse().join('') }}</p>
+        <!-- v-bind期间 双引号里面用JS代码理解 -->
+        <p :title="'box' + index">这是一个</p>
+    </div>
+    <script>
+        const vm = new Vue({
+            el:'#app',//是一个控制范围
+            data:{
+                username:'zs',
+                gender:'woman',
+                info:'<h4 style="color:red;weight:bold">欢迎使用VUE </h4>',
+                tips:'请输入用户名',
+                photoSrc:'https://www.baidu.com/img/flexible/logo/pc/result.png',
+                index:3,
+            }
+        })
+
+    </script>
+</body>
+</html>

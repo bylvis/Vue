@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue-2.6.12.js"></script>
+</head>
+<body>
+    <div id="app">
+        <a href="http://www.baidu.com" @click.prevent="show">点击跳转百度首页{{ count }}</a>
+        <hr>
+        <div style="height:150px;width:100px;background-color:orange;line-height: 150px;" @click='divHandle'>
+            <!-- 添加了阻止事件冒泡 -->
+            <button @click.stop='btnHandle'>按钮</button>
+        </div>
+    </div>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                count:1
+            },
+            methods:{
+                show() {
+                    console.log('ok');
+                },
+                btnHandle(){
+                    console.log('btnHandle');
+                },
+                divHandle(){
+                    console.log('divHandle');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

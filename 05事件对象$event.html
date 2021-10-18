@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue-2.6.12.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{ count }}</p>
+        <button v-on:click='add(1,$event)'>+N</button>
+        <button @click='sub(1,$event)'>-1</button>
+    </div>
+ 
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                count:2,
+            },
+            // 事件处理函数
+            methods:{
+                changeColor(e){
+                    console.log(1);
+                    if(vm.count %2 === 0){
+                        e.target.style.backgroundColor = 'red';
+                    }
+                    else{
+                        e.target.style.backgroundColor = '';
+                    }
+                },
+                add(n,e){
+                    vm.count+=n;
+                    this.$options.methods.changeColor(e);
+                },
+                sub(n,e){
+                    this.count-=n;
+                    this.$options.methods.changeColor(e);
+                },
+                
+                
+            }
+        })
+    </script>
+</body>
+</html>
