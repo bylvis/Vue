@@ -62,7 +62,7 @@ plugins:[['@babelplugin-proposal-decorators',{ legacy:true}]]
 ## "build": "webpack --mode production"
 项目发布时运行build命令 会覆盖 development
 
-# 10.18学习(已提交)
+# 10.18学习(已提交）
 
 ## source map 记录生成后代码的行号 和原来的位置不同
 解决：在webpack配置文件里面添加
@@ -138,3 +138,5 @@ ps:类似于模板引擎的操作
     @click.capture='fun' 以捕获模式触发当前的事件处理函数
     @click.once='fun1' 绑定的事件只触发一次
     @click.self='fun1' 只有在e.target是当前元素自身时触发事件处理函数
+
+# 19.10 学习(未提交)

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./lib/vue-2.6.12.js"></script>
+    <link rel="stylesheet" href="./lib/bootstrap.css">
+</head>
+<body>
+    <!-- vue控制下面这个dom元素 View-->
+    <div id="app">
+        <ul>
+            <li v-for='item in list'>{{ item }}</li>
+        </ul>
+        <table class="table table-hover table-striped">
+            <thead>
+                <th>index</th>
+                <th>name</th>
+                <th>age</th>
+            </thead>
+            <tbody>
+                <tr v-for='(item,index) in list' :title='item.name +":"+index'>
+                    <td>{{ index }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.age }}</td>
+                </tr>
+                
+            </tbody>
+        </table>
+    </div> 
+    <script>
+        // 创建vue实例对象 View Model
+        const vm = new Vue({
+            // el 是固定写法 表示当前vm实例控制页面上的哪个区域 接收值是选择器
+            el:'#app', //view
+            // data对象就是要渲染到页面上的数据 model
+            data:{
+                list:[
+                    {name:'zs',age:18},
+                    {name:'ls',age:28},
+                    {name:'byl',age:17},
+                    {name:'weq',age:19},
+                    {name:'zu',age:10}
+                ]
+            }
+        })
+    </script>
+</body>
+</html>
