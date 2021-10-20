@@ -11,6 +11,7 @@
         <input type="text" v-model='username'>
     </div>
     <script src="./lib/vue-2.6.12.js"></script>
+    <script src="../jQuery/jquery.min.js"></script>
     <script>
         const vm = new Vue({
             el:'#app',
@@ -18,8 +19,14 @@
                 username:'zs'
             },
             watch:{
+                // 定义方法格式侦听器
                 username(newVal,oldVal){
                     console.log(`监听到username变化！${oldVal}->${newVal}`);
+                    if(newVal === '') return console.log('用户名不能为空');
+                    $.get('https://www.escook.cn/api/finduser/'+newVal,function(res){
+                        console.log(res);
+                    })
+                    
                 }
             }
         })

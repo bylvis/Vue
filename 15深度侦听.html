@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model='info.message'>
+        <input type="text" v-model='user.username'>
+    </div>
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script src="../jQuery/jquery.min.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                info:{
+                    message:'I love Vue'
+                    },
+                user:{
+                        username:'zs',
+                        password:123
+                }
+            },
+            watch:{
+                // 定义对象格式侦听器 一步到位方法
+               'info.message':{
+                    handler(newVal,oldVal){
+                        console.log(newVal);
+                    },
+                    // 这个选项 确定是否进入页面就触发一次侦听
+                    immediate:false
+                },
+                // deep开启深度监听方法
+                user:{
+                    handler(newVal){
+                        console.log(newVal);
+                    },
+                    // 开启深度监听 只要对象中一个属性变化都会触发侦听器
+                    deep:true,
+                }
+     
+            }
+        })
+    </script>
+</body>
+</html>

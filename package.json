@@ -1,0 +1,23 @@
+{
+  "name": "VUE",
+  "version": "1.0.0",
+  "description": "概念：前端工程化的解决方案\r 主要功能：\r 1.提供友好的前端模块化开发支持\r 2.代码压缩\r 3.处理浏览器端js兼容性 es5 es6 等\r 4.性能优化",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/index-bai/Vue.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/index-bai/Vue/issues"
+  },
+  "homepage": "https://github.com/index-bai/Vue#readme"
+}

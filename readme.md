@@ -139,4 +139,68 @@ ps:类似于模板引擎的操作
     @click.once='fun1' 绑定的事件只触发一次
     @click.self='fun1' 只有在e.target是当前元素自身时触发事件处理函数
 
-# 19.10 学习(未提交)
+# 10.19学习(已提交)
+
+## 事件绑定 按键修饰符(用的不多)
+    1.@keyup.esc="fun1"
+    2.@keyup.enter="fun1"
+
+## 双向绑定
+    v-model="dataname" 只有表单元素使用才有意义 
+    :value="dataname" 只能接受初始值 不能反向传播
+    
+    修饰符
+        v-model.number="dataneme" 将v-model采集到的数据转化为数字
+        v-model.trim="dataname" 将v-model采集到的数据 首尾去除空格
+        v-model.lazy="dataname" 输入框防抖 不实时更新 失去焦点才更新数据
+
+## 条件渲染指令
+    辅助开发者按需控制DOM的显示与隐藏
+
+    1.v-if
+        不满足条件Dom会直接被删除 动态添加和删除 耗费性能
+        在默认不需要展示，而且后期可能也不大会展示出来的情况下会更好。
+
+    2.v-show
+        不满足条件会被隐藏 
+        频繁切换使用v-show会更好 它是默认就直接创建了
+
+    3.v-else-if='dataName=value' 自定义判断条件 多重判断
+
+## 循环渲染指令
+    v-for='(item,index) in list'
+    item 是元素 index是索引(不具有唯一性，没有强制的绑定关系)
+    官方建议 只要用了v-for指令 就一定要绑定一个:key属性(提升性能、防止列表紊乱)
+    尽量把id作为key值(具有唯一性)
+    在.VUE文件 里面 没绑定key主键 会报错 并且key值必须是字符串或数字 key值必须是唯一的 
+
+## filters过滤器(已弃用)
+    {{ message|capi }}
+
+    私有过滤器
+        在vue的filters配置中，本质上是一个函数，必须要有返回值，参数拿的是message，返回值会覆盖message
+
+    全局过滤器
+        定义在Vue实例之外 所有实例都可以使用这个过滤器
+        Vue.filter('capi',(str)=>{
+            return str.charAt(0).toUpperCase() + str.slice(1) +'--'
+        })
+    私有和全局过滤器 名称相同 则就近原则 首先调用私有过滤器
+    过滤器可以串联使用 都会接收前面的值作为参数 然后return回去
+    {{ A|B|C }}
+    {{ message|filterA(arg1,arg2)}}
+    第一个参数永远是管道符前面那个值
+    Vue.filterA('capi',(msg,arg1,arg2)=>{
+
+    })
+
+
+# 10.20学习(未提交)
+
+# PS
+    1.label 的 for属性 和input的id绑定 点击label 就等于点了input \
+    2.this.list.filter(item => item.id!=id )
+      filter()函数 过滤掉数组中不满足表达式的元素
+    3.str.charAt(0) 返回字符串对应索引位置的值
+    4.str.slice(1) 截取字符串对应索引以及后面的所有字符
+    5.str.toUpperCase() 将str大写化

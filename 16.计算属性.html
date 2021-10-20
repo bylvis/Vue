@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        R<input type="text"  v-model='r'>
+        <br>
+        G<input type="text"  v-model='g'>
+        <br>
+        B<input type="text"  v-model='b'>
+        <!-- v-bind= 属性绑定 代表js表达式 下面的是样式对象 -->
+        <div :style='{backgroundColor:rgb}' style='width:100px;height:100px;margin:50px'></div>
+        <div>{{ rgb }}</div>
+        <button @click='show'>按钮</button>
+    </div>
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: "#app",
+            data: {
+                r: "1",
+                g: "1",
+                b: "1",
+                a: '.5'
+            },
+            computed:{
+                rgb(){
+                    // 会return到data里面作为一个普通属性
+                    return `rgb(${this.r},${this.g},${this.b},${this.a})`
+                }
+            },
+            methods: {
+                show(){
+                    console.log(this.rgb);
+                }
+            },
+            watch: {
+                
+            }
+        })
+    </script>
+</body>
+
+</html>

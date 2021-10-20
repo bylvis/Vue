@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model='username'>
+        <input type="text" v-model='info.password'>
+    </div>
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script src="../jQuery/jquery.min.js"></script>
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                username:'zs',
+                info:{
+                    password:123
+                }
+            },
+            watch:{
+                // 定义对象格式侦听器
+                username:{
+                    handler(newVal,oldVal){
+                        console.log(newVal,oldVal);
+                    },
+                    // 这个选项 确定是否进入页面就触发一次侦听
+                    immediate:false
+                },
+                // 方法格式侦听器 无法侦听到对象里面值得变化
+                info(newVal){
+                    console.log(newVal);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

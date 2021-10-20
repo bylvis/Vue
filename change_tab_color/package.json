@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "webpack serve",
     "build": "webpack --mode production"
@@ -24,6 +25,7 @@
     "less": "^4.1.1",
     "less-loader": "^10.0.1",
     "style-loader": "^3.0.0",
+    "then-fs": "^2.0.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.42.1",
     "webpack-cli": "^4.9.0",
