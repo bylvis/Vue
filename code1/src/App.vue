@@ -4,13 +4,26 @@
     <h3>asdasd--{{ username }}</h3>
     <h2>{{ count }}</h2>
     <button @click='addCount'>add</button>
-    <hello-world></hello-world
+    <HelloWorld></HelloWorld>
+    <hr>
+    <global></global>
+    <hr>
+    <Myzujian></Myzujian>
+    
   </div>
 </template>
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+
+import global from './components/globalReg/global.vue'
+import jubu from './components/privateReg/jubu.vue'
+
+
 export default {
-  components: { HelloWorld },
+  components: { 
+     global, 
+    'Myzujian':jubu,
+  },
   name:'MyApp',
   data(){
     return{
@@ -22,7 +35,8 @@ export default {
     addCount(){
       this.count++
     }
-  }
+  },
+  
 }
 </script>
 <style lang='less'>
