@@ -2,7 +2,7 @@
   <h1>App根组件</h1>
   <hr />
   <to-input @add='addNewTask'></to-input>
-  <to-do-list :list="todolist" class="mt-2"></to-do-list>
+  <to-do-list :list="tasklist" class="mt-2"></to-do-list>
   <to-button v-model:active="activeBtnIndex"></to-button>
 </template>
 
@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       // 列表数据
-      activeBtnIndex:1,
+      activeBtnIndex:0,
       nextId : 4,
       todolist: [
         { id: 1, task: "起床", done: true },
@@ -41,6 +41,18 @@ export default {
         done:false
       });
       this.nextId++
+    }
+  },
+  computed:{
+    tasklist(){
+      switch(this.activeBtnIndex){
+        case 0:
+          return this.todolist
+        case 1:
+          return this.todolist.filter(x => x.done)
+        case 2:
+          return this.todolist.filter(x => !x.done)
+      }
     }
   }
 };
