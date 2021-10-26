@@ -18,7 +18,6 @@
 import global from './components/globalReg/global.vue'
 import jubu from './components/privateReg/jubu.vue'
 
-
 export default {
   components: { 
      global, 
