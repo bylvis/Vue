@@ -15,6 +15,7 @@ export default {
       add(){
         //   触发事件 第二个参数作为 传递的参数 会给到前面countChange事件调用的方法作为参数
           this.$emit('update:count',this.count+1)
+          
           this.$emit('countChange',this.count)
         // 不能直接对父组件的count进行操作
         //   this.count++
