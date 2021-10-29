@@ -13,7 +13,7 @@ export default {
         }
     },
     created(){
-        // 接收方给 bus挂载一个事件
+        // 接收方给 bus挂载一个事件 接收count 赋值给自己的num
         bus.on('countChange',count =>{
             this.num = count
         })

@@ -1,13 +1,11 @@
-var list = []
-var Qlist = []
 var count = 0
+var list = []
 function queen(a, cur) {
+    
     if (cur==a.length) { 
         console.log(a);
-        console.log(count);
         count++ 
-        list.push(count)
-        return; 
+        return a; 
     }
     // 第一个循环 循环八次
     for (var i = 0; i < a.length; i++) {
@@ -23,10 +21,16 @@ function queen(a, cur) {
             };
         };
         if (flag) { 
+            if(cur == 7){
+                console.log('a',a);
+                temp = [...a]
+                list.push(temp)
+            }
             queen(a,cur+1); 
         }
+           
     };
 };
 queen([1,1,1,1,1,1,1,1],0);
-console.log(list);
-console.log(Qlist);
+console.log(count-1);
+console.log('list',list);
