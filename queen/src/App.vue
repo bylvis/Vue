@@ -13,6 +13,7 @@
 </template>
 
 <script>
+
 import Queen from './components/Queen.vue'
 import Res from './components/res.vue'
 // import './assets/css/bootstrap.css'

@@ -1,12 +1,12 @@
 {
-  "name": "queen",
+  "name": "shop-cart",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
   },
   "dependencies": {
-    "node": "^12.22.7",
+    "axios": "^0.21.1",
     "vue": "^3.0.4"
   },
   "devDependencies": {

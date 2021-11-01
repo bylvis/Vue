@@ -1,0 +1,6 @@
+:root{
+  font-size: 12px;
+}
+.custom-checkbox .custom-control-label::before {
+  border-radius: 1.25rem !important;
+}

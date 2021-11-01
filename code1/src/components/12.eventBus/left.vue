@@ -5,6 +5,8 @@
 
 <script>
 import bus from './eventBus'
+
+
 export default {
     name:'left',
     data(){
