@@ -1,7 +1,7 @@
 // 1.按需要导入createApp函数
 import { createApp } from 'vue'
 // 2.导入待渲染的App.vue组件
-import App from './components/14axios/App.vue'
+import App from './components/18slotUse/App.vue'
 // import App from './App.vue'
 
 // 全局导入axios
