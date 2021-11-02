@@ -1,7 +1,7 @@
 <template>
   <div class="app-contain">
     <es-header title='shop-cart'></es-header>
-    <es-goods v-for="item in goodlist" :id="item.id" :key="item.id" :imgSrc="item.goods_img" :title="item.goods_name" :price="item.goods_price" :count="item.goods_count" :checked="item.goods_state" @countChange="onGoodsStateChange"></es-goods>
+    <es-goods v-for="item in goodlist" :id="item.id" :key="item.id" :imgSrc="item.goods_img" :title="item.goods_name" :price="item.goods_price" :count="item.goods_count" :checked="item.goods_state" @countChange="onGoodsStateChange" @numChange="onGoodsCountChange"></es-goods>
     <es-footer @fullChange="onFullStateChange" :amount="amount" :total="total"></es-footer>
   </div>
 </template>
@@ -46,6 +46,12 @@ export default {
       const findRes = this.goodlist.find(x => x.id === e.id)
       if(findRes){
         findRes.goods_state = e.value
+      }
+    },
+    onGoodsCountChange(e){
+      const findRes = this.goodlist.find(x=>x.id === e.id)
+      if(findRes){
+        findRes.goods_count = e.value
       }
     }
   },

@@ -1,8 +1,8 @@
 <template>
   <div class="counter-container">
+      <button type="button" class="btn btn-light btn-sm" @click="Del">-</button>
+      <input type="number" class="form-control from-control-sm ipt-num" v-model.number.lazy="num"/>
       <button type="button" class="btn btn-light btn-sm" @click="Add">+</button>
-      <input type="number" class="form-control from-control-sm ipt-num" v-model.number="num"/>
-      <button type="button" class="btn btn-light btn-sm">-</button>
   </div>
 </template>
 
@@ -13,6 +13,10 @@ export default {
         count:{
             type:[Number],
             require:true
+        },
+        min:{
+            type:Number,
+            default:NaN
         }
     },
     data(){
@@ -20,14 +24,35 @@ export default {
             num:this.count
         }
     },
+    emits:['numChange'],
+    watch:{
+        num(newVal){
+            const parseRes = parseInt(newVal);
+            if(isNaN(parseRes)||parseRes<1){
+                this.num=1;
+                return
+            }
+            if(String(newVal).indexOf('.') !== -1){
+                this.num=parseRes
+            }
+            // console.log(newVal,parseRes);
+            this.$emit('numChange',parseRes)
+        }
+    },
     // emits:['countAdd','countDel'],
     methods:{
         Add(){
-            this.count++
-            // this.$emit('countAdd',this.count)
+           
+            // if(!isNaN(this.min) && this.num-1 < this.min){
+            //     return
+            // }
+            this.num++
         },
         Del(){
-            this.count--
+            if(!isNaN(this.min) && this.num-1 < this.min){
+                return
+            }
+            this.num--
             // this.$emit('countDel',this.count)
         }
     }

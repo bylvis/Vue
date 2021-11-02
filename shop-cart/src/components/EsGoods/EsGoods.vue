@@ -12,8 +12,8 @@
       <!-- 商品信息区 -->
       <div class="info">
           <h5 class="title">{{ title }}</h5>
-          <p class="price">${{ price.toFixed(2) }}</p>
-          <es-counter class="count" :count="count" ></es-counter>
+          <p class="price">${{ price.toFixed(2)*count }}</p>
+          <es-counter class="count" :count="count" :min="1" @numChange="getNumChange" ></es-counter>
       </div>
   </div>
 </template>
@@ -51,7 +51,7 @@ export default {
             require:true
         }
     },
-    emits:['countChange'],
+    emits:['countChange','numChange'],
     methods:{
       getCountChange(e){
         // console.log(e.target.checked);
@@ -59,6 +59,13 @@ export default {
             id:this.id,
             value:e.target.checked
         })
+      },
+      getNumChange(num){
+          console.log(num);
+          this.$emit('numChange',{
+              id:this.id,
+              value:num
+          })
       }
     }
 }
