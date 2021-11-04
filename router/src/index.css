@@ -1,0 +1,12 @@
+:root{
+  font-size: 12px;
+}
+.router-link-active{
+  background-color: red;
+  color: white;
+  font-weight: bold;
+}
+.active-router{
+  background-color: skyblue;
+  font-weight: bold;
+}
