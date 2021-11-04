@@ -27,7 +27,7 @@
       </tr>
     </tbody>
   </table>
-  <h1 v-if="resCount != -1">一共有{{ resCount }}种解法</h1>
+  <h1 v-if="resCount != -1">一共有{{ resCount+1 }}种解法</h1>
 </template>
 
 <script>
