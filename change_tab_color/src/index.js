@@ -20,7 +20,7 @@ function info(target){
 }
 // 定义一个普通的类 
 @info
-class Person{}
+// class Person{}
 console.log(Person.info);
 
 import msg from '@/msg.js'
